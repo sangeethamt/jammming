@@ -1,14 +1,13 @@
 import React from "react";
 
-import "./TrackList.css";
+import styles from "./TrackList.module.css";
 
 import Track from "../Track/Track";
 
-const TrackList = (props) => {
+function TrackList(props){
   return (
-    <div className="TrackList">
-      {props.tracks.map((track) => {
-        return (
+    <div className={styles.TrackList}>
+      {props.userSearchResults.map((track) => (
           <Track
             track={track}
             key={track.id}
@@ -16,8 +15,7 @@ const TrackList = (props) => {
             isRemoval={props.isRemoval}
             onRemove={props.onRemove}
           />
-        );
-      })}
+      ))}
     </div>
   );
 };

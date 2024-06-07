@@ -1,13 +1,13 @@
 
 import React, { useState, useCallback } from "react";
-import "./App.css";
+import styles from  "./App.module.css";
 
 import Playlist from "../Playlist/Playlist";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import Spotify from "../../util/Spotify";
 
-const App = () => {
+function App(){
   const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
@@ -47,12 +47,12 @@ const App = () => {
   return (
     <div>
       <h1>
-        Ja<span className="highlight">mmm</span>ing
+        Ja<span className={styles.highlight}>mmm</span>ing
       </h1>
-      <div className="App">
+      <div className={styles.App}>
         <SearchBar onSearch={search} />
-        <div className="App-playlist">
-          <SearchResults searchResults={searchResults} onAdd={addTrack} />
+        <div className={styles['App-playlist']}>
+          <SearchResults userSearchResults={searchResults} onAdd={addTrack} />
           <Playlist
             playlistName={playlistName}
             playlistTracks={playlistTracks}
